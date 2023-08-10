@@ -274,8 +274,23 @@
 
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-  <script>
 
+
+  <script>
+    const navbar = document.querySelector('.navbar');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+
+      if (scrollTop > lastScrollTop) {
+        navbar.style.boxShadow = '0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+
+      // lastScrollTop = scrollTop;
+    });
   </script>
 </body>
 
