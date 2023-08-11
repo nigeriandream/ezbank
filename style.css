@@ -18,19 +18,23 @@
 
 * {
     font-family: 'Public Sans', sans-serif !important;
+    scroll-behavior: smooth !important;
 }
 
 body {
     color: var(--grayishBlue);
-    background-color: var(--white);
+    background: var(--white);
 }
 
 
 .navbar {
     max-width: 100%;
-    background-color: #fff;
+    background: #fff;
     position: fixed;
     z-index: 10;
+    backdrop-filter: blur(10px);
+    transition: ease 0.8s all;
+    box-shadow: none;
 }
 
 .navButtons {
@@ -47,6 +51,12 @@ button {
     background: linear-gradient(30deg, #4CAF50, #00BFFF);
     color: #fff !important;
     border-radius: 2rem !important;
+    transition: all 1s ease;
+    /* Corrected syntax for transition */
+}
+
+button:hover {
+    background: linear-gradient(-30deg, #4CAF50, #00BFFF);
 }
 
 .mw {
@@ -91,18 +101,37 @@ h3 {
     font-size: 1.17em !important;
 }
 
+.high-stack {
+    position: absolute;
+    z-index: 2;
+    top: -65px;
+    right: -35px;
+    height: auto;
+    transform: translateX(0%);
+    transition: transform 0.1s ease;
+}
 
+.low-stack {
+    position: absolute;
+    z-index: 1;
+    right: -155px;
+    top: -5px;
+    height: auto;
+    width: 65%;
+}
 
-/* Basic styling */
-
-img,
+article img,
 svg {
     transition: 0.4s ease all;
 }
 
-img:hover,
+article img:hover,
 svg:hover {
     transform: scale(1.02);
+}
+
+.footer-links a {
+    transition: 0.4s ease color;
 }
 
 .footer-links a:hover {
@@ -285,6 +314,12 @@ svg:hover {
     width: 25px;
     height: 25px;
     display: inline-flex;
+    transition: 0.4s ease all;
+}
+
+.footer-icon:hover {
+    fill: var(--limeGreen);
+    filter: brightness(1.2);
 }
 
 .footer-link {
